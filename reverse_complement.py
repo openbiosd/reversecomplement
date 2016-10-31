@@ -16,13 +16,18 @@ def reverse_complement(seq):
     return bases
    
 f_inname = input('Enter file name: ')
-f_inhandle = open(f_inname, 'r')
+try:
+    f_inhandle = open(f_inname, 'r')
+except:
+    print('File cannot be opened: ', f_inname)
+    exit() 
 seq = f_inhandle.read() # TCGGinsGGCC
 
 index = f_inname.find('.')
 f_inname = f_inname[:index]
 f_outname = f_inname + '_revcomp.txt'
-
-f_outhandle = open(f_outname, 'x')
+try:
+    f_outhandle = open(f_outname, 'x')
+except:
+    print('Generated file cannot be created: ', f_outhandle)
 seq_revcomp = f_outhandle.write(reverse_complement(seq))
-
