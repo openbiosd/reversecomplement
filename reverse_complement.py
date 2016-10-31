@@ -24,10 +24,11 @@ except:
 seq = f_inhandle.read() # TCGGinsGGCC
 
 index = f_inname.find('.')
-f_inname = f_inname[:index]
-f_outname = f_inname + '_revcomp.txt'
+f_outname = f_inname[:index] + '_revcomp.txt'
 try:
     f_outhandle = open(f_outname, 'x')
 except:
     print('Generated file cannot be created: ', f_outhandle)
+    exit()
+    
 seq_revcomp = f_outhandle.write(reverse_complement(seq))
