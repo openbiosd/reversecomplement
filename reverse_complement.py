@@ -1,0 +1,28 @@
+'''
+Find reverse-complement of a strand of DNA
+'''
+
+alt_map = {'ins':'0'}
+complement = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'} 
+
+def reverse_complement(seq):    
+    for k,v in alt_map.items():
+        seq = seq.replace(k,v)
+    bases = list(seq) 
+    bases = reversed([complement.get(base,base) for base in bases])
+    bases = ''.join(bases)
+    for k,v in alt_map.items():
+        bases = bases.replace(v,k)
+    return bases
+   
+f_inname = input('Enter file name: ')
+f_inhandle = open(f_inname, 'r')
+seq = f_inhandle.read() # TCGGinsGGCC
+
+index = f_inname.find('.')
+f_inname = f_inname[:index]
+f_outname = f_inname + '_revcomp.txt'
+
+f_outhandle = open(f_outname, 'x')
+seq_revcomp = f_outhandle.write(reverse_complement(seq))
+
