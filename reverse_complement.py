@@ -23,7 +23,7 @@ except:
     exit() 
 seq = f_inhandle.read() # TCGGinsGGCC
 
-f_outname = reverse_complement.txt'
+f_outname = 'reverse_complement.txt'
 try:
     f_outhandle = open(f_outname, 'x')
 except:
