@@ -23,8 +23,7 @@ except:
     exit() 
 seq = f_inhandle.read() # TCGGinsGGCC
 
-index = f_inname.find('.')
-f_outname = f_inname[:index] + '_revcomp.txt'
+f_outname = reverse_complement.txt'
 try:
     f_outhandle = open(f_outname, 'x')
 except:
